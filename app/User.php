@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Concerns\HasUserAccessors;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasUserAccessors;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'phone', 'email', 'password', 'role_id', 'status',  'profile_pic_id'
     ];
 
     /**
@@ -26,4 +27,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = ['avtar'];
+    /**
+    * Function for use to exclude the role admin
+    */
+    public function scopeExcludeAdmin($query)
+    {
+        return $query->where('role_id','!=', '1');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Model\Role');
+    }
 }

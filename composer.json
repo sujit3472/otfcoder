@@ -7,7 +7,10 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "laracasts/flash": "^3.0",
+        "intervention/image": "^2.4",
+        "laravelcollective/html": "^5.4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -20,7 +23,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/Helpers/ApplicationHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

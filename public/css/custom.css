@@ -1,0 +1,37 @@
+.form-inline .form-control {width: inherit;}
+.user-status, .hide-show, .location-status,.package-status, .service-status, .haireye-status, .tourdata-status, .content-status, .approval_status {cursor: pointer;}
+.label-black {background-color: #101010;}
+.available_escorts, .banner_profiles {min-height: 52px;border: 1px dashed;}
+.available_escorts {height:300px; overflow: auto;}
+.help-block, .error {color:#f10404;}
+.has-error input{border-color:#f10404;}
+.sidebar-nav > ul > li > a.active { background: transparent; }
+.notification-unread {background-color: #f2f4f8;}
+.season-year{padding: 6px 12px}
+.d-table-row {display: table-row !important;}
+.d-table-row-group {display: table-header-group !important;}
+
+@media (max-width: 1169px) {
+	header  .navbar-header .navbar-brand img {
+	    width: 90% !important;
+	}
+	.track-progress li span {
+	    font-size: 13px;
+	}
+}
+
+@media (max-width: 991px) {
+	.track-progress li {width: 50% !important;margin-bottom: 15px;}
+}
+@media (max-width: 800px) {
+	.card .table-responsive {margin-top: 20px;display: inline-block}
+	.card.table-listing h4.card-title{line-height: inherit;}
+
+	.submit-approval h4.card-title {margin-bottom: 20px;display: block;}
+	.submit-approval .next-previous-btn a {margin: 10px auto;}
+}
+@media (max-width: 767px) {
+	.search-field-approve .btn-info {margin-top: 0px}
+	.card-body .form-control {margin-bottom: 15px;}
+}
+input#contract_file {position: relative;text-align: right;-moz-opacity:0 ;filter:alpha(opacity: 0);opacity: 0;z-index: 2;border: 1px solid #cccccc; cursor: pointer;}
