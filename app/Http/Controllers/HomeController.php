@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function fn_user_home() 
+    {
+        return view('home');   
+    }
 }

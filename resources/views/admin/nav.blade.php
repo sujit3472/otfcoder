@@ -1,40 +1,54 @@
 <?php
 
 $arr_menus = array();
- 
-    $arr_menu = array(
-            'icon'       => 'mdi mdi-gauge',
-            'menu_title' => 'Dashboard',
-            'menu_link'  => url('/home'),
-            'active_function'  => '/',
-            'active_parameter' => 'dashboard',
-            'breadcrumbs_main' => 'dashboard',
-    );
+    
+    if(Auth::user()->role_id == '1') {
 
-    $arr_menus[] = $arr_menu;
-    ## User Module
-    $arr_menu = array(
-            'icon'       => 'fa-users',
-            'menu_title' => 'Manage Users',
-            'menu_link'  => url('user'),
-            'active_function'  => 'user',
-            'active_parameter' => 'user',
-            'breadcrumbs_main' => 'Users',
-    );
-    $arr_menu['submenu_items'][] = array(
-            'menu_title' => 'All Users',
-            'menu_link'  =>  url('user'),
-            'sub_active_function' => 'user',
-            'breadcrumbs_sub' => 'Users',
-    );
+        $arr_menu = array(
+                'icon'       => 'mdi mdi-gauge',
+                'menu_title' => 'Dashboard',
+                'menu_link'  => url('/home'),
+                'active_function'  => '/',
+                'active_parameter' => 'dashboard',
+                'breadcrumbs_main' => 'dashboard',
+        );
 
-    $arr_menu['submenu_items'][] = array(
-            'menu_title' => 'Add Users',
-            'menu_link'  =>  url('user/create'),
-            'sub_active_function' => 'user',
-            'breadcrumbs_sub' => 'Add Users',
-    );
-    $arr_menus[] = $arr_menu;
+        $arr_menus[] = $arr_menu;
+        ## User Module
+        $arr_menu = array(
+                'icon'       => 'fa-users',
+                'menu_title' => 'Manage Users',
+                'menu_link'  => url('user'),
+                'active_function'  => 'user',
+                'active_parameter' => 'user',
+                'breadcrumbs_main' => 'Users',
+        );
+        $arr_menu['submenu_items'][] = array(
+                'menu_title' => 'All Users',
+                'menu_link'  =>  url('user'),
+                'sub_active_function' => 'user',
+                'breadcrumbs_sub' => 'Users',
+        );
+
+        $arr_menu['submenu_items'][] = array(
+                'menu_title' => 'Add Users',
+                'menu_link'  =>  url('user/create'),
+                'sub_active_function' => 'user',
+                'breadcrumbs_sub' => 'Add Users',
+        );
+        $arr_menus[] = $arr_menu;
+    } else  {
+        $arr_menu = array(
+                'icon'       => 'mdi mdi-gauge',
+                'menu_title' => 'Update Details',
+                'menu_link'  => url('/profile'),
+                'active_function'  => '/',
+                'active_parameter' => 'profile',
+                'breadcrumbs_main' => 'profile',
+        );
+
+        $arr_menus[] = $arr_menu;
+    }
     
 ?>
 
