@@ -18,3 +18,5 @@ php artisan storage:link
 
 6.For Adding 1000 records using the below command
 	php artisan db:seed  OR php artisan db:seed --class=UserTableSeeder	
+
+7.For sending mail use your details in .env file	
