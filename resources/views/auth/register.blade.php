@@ -93,7 +93,7 @@
                             <label for="name" class="col-md-4 control-label">Profile Picture</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control avatar" name="avatar" value="{{ old('avatar') }}" autofocus accept="image/*">
+                                <input id="avatar" type="file" class="form-control avatar" name="avatar" autofocus accept="image/*">
 
                                 @if ($errors->has('avatar'))
                                     <span class="help-block">
@@ -107,7 +107,7 @@
                             <div class="col-md-6">
                                 <img src="" alt="Featured Image" height="70" width="90" id="avtar_image">
                                 <span class="badge badge-danger remove-image" data-user-id = "" id="remove-icon">X</span>
-                                <input name="profile_pic_id" type="hidden" id="profile_pic_id" value="">
+                                <input name="profile_pic_id" type="hidden" id="profile_pic_id" value="{{ old('profile_pic_id') }}">
                             </div>
                         </div>
                         <div class="form-group">

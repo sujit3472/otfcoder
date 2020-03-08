@@ -26,8 +26,8 @@ class ProfileUpdateRequest extends FormRequest
     {
         $rules = [];
         $rules = [
-            'first_name' => 'required',
-            'last_name'  => 'required',
+            'first_name' => 'required|max:80',
+            'last_name'  => 'required|max:80',
             /*// 'email'      => ['required',
                 Rule::unique('users')->ignore($this->user)],*/
             'email' => 'required|unique:users,email,'.FormRequest::all()['id'].'|regex:/^[A-z][A-z0-9_.\-]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{2,4}$/',

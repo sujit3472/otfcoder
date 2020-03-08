@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     @yield('plugin_css')
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('css/custom.css')}}" rel="stylesheet">
-
+    <!-- You can change the theme colors from here -->
+    <link href="{{ asset('css/colors/default.css') }}" id="theme" rel="stylesheet">
     @yield('header')
 </head>
 <body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
     <div id="main-wrapper">
+        <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar">
@@ -36,8 +45,8 @@
                         <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            WelCome
-                            
+                            Welcome 
+                            <small>{{ Auth::user()->full_name }}</small>
                             <span >
                             <!-- dark Logo text -->
                                 <!-- <img src="{{ asset('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />     -->
@@ -100,7 +109,14 @@
                                     <li>
                                         <div class="dw-user-box">                                            
                                             <div class="u-text">
-                                                <h4>@if(!empty(Auth::user())) {{ ucfirst(Auth::user()->full_name)}}@else"NA"@endif</h4>
+                                                <h4>@if(!empty(Auth::user())) {{ ucfirst(Auth::user()->full_name)}}@else"NA"@endif</h4>                     
+                                                @if(Auth::user()->role_id != '1')
+                                                    <a href="{{ url('profile')}}" class="btn btn-rounded 
+                                                    btn-danger btn-sm">My Profile</a>
+                                                @endif
+                                                @if(Auth::user()->role_id == '1')
+                                                    <a href="{{ url('changepassword')}}" class="btn btn-rounded btn-danger btn-sm">Change Password</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </li>                                    
@@ -144,9 +160,28 @@
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
+            <!--=========================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ======================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor"></h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            <!-- ============================================================ -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================ -->
+            <!-- ============================================================ -->
             <!-- Container fluid  -->
             <!-- ============================================================ -->
             <div class="container-fluid">
@@ -159,25 +194,43 @@
                 <!-- End PAge Content -->
                 <!--========================================================= -->
             </div>
+            <!-- ======================================================= -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ========================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> ©  </footer>
+            <!-- ========================================================= -->
+            <!-- End footer -->
+            <!-- ========================================================= -->
         </div>
-    </div>    
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.1.1.min.js')}}"></script>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('plugins/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-
+    <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{ asset('js/jquery.slimscroll.js')}}"></script>
     <!--Menu sidebar -->
     <script src="{{ asset('js/sidebarmenu.js')}}"></script>
     <!--stickey kit -->
-    <script src="{{ asset('plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('js/custom.min.js')}}"></script>
+    <!-- ============================================================== -->
+    
     @yield('footer')
     @stack('scripts')
 </body>
+
 </html>

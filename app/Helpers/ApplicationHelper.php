@@ -17,6 +17,22 @@ function fn_generate_token($len) {
     $result = $random;
     return $result;
 }
+
+function fn_generate_number($len) {
+    $result = array();
+    $alphabet = "0123456789";
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+
+    $random = '';
+    $pass = array();
+    for ($i = 0; $i < $len; $i++) {
+       $n   = rand(0, $alphaLength);
+       $pass[] = $alphabet[$n];
+    }
+    $random = implode($pass); //turn the array into a string
+    $result = $random;
+    return $result;
+}
 /**
  * Function to store the file in temporary
  *

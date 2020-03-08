@@ -10,14 +10,14 @@
 		<div class='col-md-6'>
 			<div class="form-group  {{ $errors->has('first_name') ? 'has-error' : ''}}">
 			    {!! Form::label('first_name', trans('user.first_name'), ['class' => 'control-label']) !!}<span class="text-danger">*</span>
-			        {!! Form::text('first_name', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required', 'maxlength' => '50', 'autocomplete' => 'none', 'id'=> 'first_name'] : ['class' => 'form-control', 'maxlength' => '50', 'autocomplete' => 'none', 'id'=> 'first_name']) !!}
+			        {!! Form::text('first_name', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required', 'maxlength' => '80', 'autocomplete' => 'none', 'id'=> 'first_name'] : ['class' => 'form-control', 'maxlength' => '80', 'autocomplete' => 'none', 'id'=> 'first_name']) !!}
 			        {!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
 			</div>
 		</div>
 		<div class='col-md-6'>
 			<div class="form-group  {{ $errors->has('last_name') ? 'has-error' : ''}}">
 			    {!! Form::label('last_name', trans('user.last_name'), ['class' => 'control-label']) !!}<span class="text-danger">*</span>
-			        {!! Form::text('last_name', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required', 'maxlength' => '50', 'autocomplete' => 'none'] : ['class' => 'form-control', 'maxlength' => '50']) !!}
+			        {!! Form::text('last_name', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required', 'maxlength' => '80', 'autocomplete' => 'none'] : ['class' => 'form-control', 'maxlength' => '80']) !!}
 			        {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
 			</div>
 		</div>	

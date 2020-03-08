@@ -36,8 +36,8 @@ trait HasUserAccessors
         return $statusClass;
     }
 
-    	/*
-	* Company Logo Accesor		
+    /*
+	* get user profile image		
 	*/
     public function getAvatarAttribute()
     {             

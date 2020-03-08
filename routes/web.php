@@ -21,9 +21,7 @@ Route::any('/delete-image', 'ImageMediaController@fn_removeimage');
 ##Verify User
 Route::any('verify-user/{slug?}', 'Auth\RegisterController@fn_verify_user');
 
-
 Auth::routes();
-
 
 Route::get('/home', function() 
 {
@@ -42,17 +40,31 @@ Route::get('/home', function()
 });
 ## middleware for admin access
 Route::group(['middleware' => 'CheckAdminAccess'], function () { 
+	##Route for dashboard
 	Route::get('admin/dashboard', 'HomeController@index')->name('home');
+	
+	##Route for user
 	Route::resource('user', 'backend\UserController');
 	Route::get('user/{id}/delete', 'backend\UserController@destroy');
 
+	##Route for role
+	Route::resource('roles', 'backend\RoleController');
+	
+	## Route For Common status change
+	Route::any('changestatus', 'HomeController@fn_change_status');
+
+	Route::any('changepassword/{id}', 'HomeController@fn_change_passsword');
+	Route::get('changepassword', function () {
+		return view('change-password');
+	});
 });
 
 ## middleware for admin access
 Route::group(['middleware' => 'CheckUserAccess'], function () { 
-	// Route::resource('profile', 'backend\UserController');
+	##Route for user dashboard
 	Route::get('/user-home', 'HomeController@fn_user_home');
+	
+	##Route for profile and update profile
 	Route::get('profile', 'ProfileController@edit'); 
 	Route::patch('profile/{id}', 'ProfileController@update');
-
 });

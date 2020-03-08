@@ -24,7 +24,7 @@ class ProfileController extends Controller
         if(empty($user))
             return redirect('/home');
         
-        return view('admin.admin-profile', compact('user'));
+        return view('Backend.profile.user-profile', compact('user'));
     }
 
     /**

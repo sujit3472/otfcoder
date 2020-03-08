@@ -37,6 +37,23 @@ $arr_menus = array();
                 'breadcrumbs_sub' => 'Add Users',
         );
         $arr_menus[] = $arr_menu;
+
+        ## Role Module
+        $arr_menu = array(
+                'icon'       => 'fa-users',
+                'menu_title' => 'Manage Roles',
+                'menu_link'  => url('roles'),
+                'active_function'  => 'roles',
+                'active_parameter' => 'roles',
+                'breadcrumbs_main' => 'Roles',
+        );
+        $arr_menu['submenu_items'][] = array(
+                'menu_title' => 'All Roles',
+                'menu_link'  =>  url('roles'),
+                'sub_active_function' => 'roles',
+                'breadcrumbs_sub' => 'Roles',
+        );
+        $arr_menus[] = $arr_menu;
     } else  {
         $arr_menu = array(
                 'icon'       => 'mdi mdi-gauge',

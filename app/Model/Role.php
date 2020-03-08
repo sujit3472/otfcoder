@@ -2,10 +2,12 @@
 
 namespace App\Model;
 
+use App\Concerns\HasRoleAccessors;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    use HasRoleAccessors;
     /**
      * The database table used by the model.
      *
