@@ -1,0 +1,20 @@
+Project Setup guide
+1.Clone the repository in your directory
+	https://github.com/sujit3472/otfcoder.git
+
+2.Update the composer
+
+3.Run the migration using command
+php artisan migrate
+
+4.Create the storage link	
+php artisan storage:link
+
+5.Project Link - 
+	http://localhost/otfcoder/public/login
+	For Admin login
+	Email - admin@admin.com
+	password - password
+
+6.For Adding 1000 records using the below command
+	php artisan db:seed  OR php artisan db:seed --class=UserTableSeeder	
